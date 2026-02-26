@@ -61,17 +61,19 @@
   High contrast, brutalist look.
 */
 .retro {
-  --background: #000080; /* Windows 95 Desktop Blue */
+  --background: #000080;
+  /* Classic 90s Blue */
   --foreground: #ffffff;
-  --primary: #c0c0c0; /* Gray */
+  --primary: #ffff00;
+  /* Yellow accent */
   --primary-foreground: #000000;
-  --card: #c0c0c0;
-  --card-foreground: #000000;
+  --card: #000080;
+  --card-foreground: #ffffff;
   --border: #ffffff;
-  --muted: #808080;
-  --muted-foreground: #000000;
-  --accent: #ff0000;
-  --accent-foreground: #ffffff;
+  --muted: #000040;
+  --muted-foreground: #c0c0c0;
+  --accent: #ffff00;
+  --accent-foreground: #000000;
 }
 
 body {
