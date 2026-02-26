@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "tailwindcss-animate";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@custom-variant dark (&:is(.dark *));
+@custom-variant retro (&:is(.retro *));
+
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/*
+  The default theme is "modern" minimalistic light mode.
+*/
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --border: #e4e4e7;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+}
+
+/*
+  Dark mode. Modern & minimalistic.
+*/
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+  --card: #09090b;
+  --card-foreground: #fafafa;
+  --border: #27272a;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+}
+
+/*
+  1990s Retro Theme.
+  High contrast, brutalist look.
+*/
+.retro {
+  --background: #000080; /* Windows 95 Desktop Blue */
+  --foreground: #ffffff;
+  --primary: #c0c0c0; /* Gray */
+  --primary-foreground: #000000;
+  --card: #c0c0c0;
+  --card-foreground: #000000;
+  --border: #ffffff;
+  --muted: #808080;
+  --muted-foreground: #000000;
+  --accent: #ff0000;
+  --accent-foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Retro specific global overrides */
+.retro body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.retro * {
+  border-radius: 0 !important;
 }
