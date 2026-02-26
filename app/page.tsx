@@ -29,27 +29,35 @@ export default function Home() {
           {/* EXPERIENCE SECTION */}
           <section id="experience" className="space-y-8">
             <h2 className="text-3xl font-bold tracking-tight retro:font-mono retro:uppercase retro:bg-foreground retro:text-background retro:p-2 retro:inline-block">Experience</h2>
-            <div className="space-y-12 border-l-2 border-muted pl-6 retro:border-l-4 retro:border-foreground retro:pl-8">
+            <div className="space-y-16 border-l-2 border-muted pl-6 retro:border-l-4 retro:border-foreground retro:pl-8">
               {CV_DATA.experience.map((exp, index) => (
                 <div key={index} className="relative group">
                   <div className="absolute -left-[33px] top-1 h-4 w-4 rounded-full bg-background border-2 border-primary retro:-left-[42px] retro:h-6 retro:w-6 retro:rounded-none retro:border-4 retro:border-foreground retro:bg-primary group-hover:scale-110 transition-transform" />
-                  <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-6">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                      <h3 className="text-xl font-bold retro:font-mono">{exp.company}</h3>
+                      <h3 className="text-2xl font-bold retro:font-mono retro:underline">{exp.company}</h3>
                       <span className="text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full retro:rounded-none retro:border-2 retro:border-foreground retro:bg-background retro:text-foreground retro:font-bold">
                         {exp.period}
                       </span>
                     </div>
-                    <div className="text-primary font-medium retro:bg-muted retro:p-1 retro:inline-block retro:w-fit retro:border-2 retro:border-foreground">
+                    <div className="text-primary font-bold text-lg retro:bg-muted retro:p-1 retro:inline-block retro:w-fit retro:border-2 retro:border-foreground">
                       {exp.role} {exp.location && `• ${exp.location}`}
                     </div>
-                    {exp.achievements.length > 0 && (
-                      <ul className="list-disc list-outside ml-4 mt-2 space-y-2 text-muted-foreground retro:text-foreground retro:list-square">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="leading-relaxed">{achievement}</li>
-                        ))}
-                      </ul>
-                    )}
+
+                    <div className="space-y-10 mt-4">
+                      {exp.projects.map((project, pIndex) => (
+                        <div key={pIndex} className="space-y-3 border-l-2 border-primary/20 pl-4 retro:border-l-2 retro:border-dotted retro:border-foreground">
+                          <h4 className="font-bold text-primary retro:text-foreground retro:italic">{project.title}</h4>
+                          {project.achievements.length > 0 && (
+                            <ul className="list-disc list-outside ml-4 space-y-2 text-muted-foreground retro:text-foreground retro:list-square">
+                              {project.achievements.map((achievement, i) => (
+                                <li key={i} className="leading-relaxed text-sm">{achievement}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}

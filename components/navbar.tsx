@@ -11,7 +11,7 @@ export function Navbar() {
             <div className="container flex h-16 max-w-screen-xl items-center justify-between mx-auto px-4">
                 <Link href="/" className="flex items-center space-x-2 retro:active:translate-y-px">
                     <span className="font-bold text-xl tracking-tight retro:text-foreground">
-                        {CV_DATA.name.split(" ")[0]}
+                        {CV_DATA.name.replace(" ", "").toLocaleLowerCase()}
                         <span className="text-muted-foreground retro:text-primary">.dev</span>
                     </span>
                 </Link>
